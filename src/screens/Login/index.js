@@ -28,7 +28,7 @@ export function Login() {
 
   const Authenticate = () => {
     if (handleLogin(formValue.email, formValue.password)) {
-      navigate("/interests");
+      navigate("/home");
     }
   };
 
@@ -113,6 +113,8 @@ const styles = StyleSheet.create({
   },
   esqueceu: {
     color: "#FF4500",
+    paddingTop:5
+    
   },
   logo: {
     height: 200,

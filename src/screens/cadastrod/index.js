@@ -5,10 +5,11 @@ import {
   Image,
   TouchableOpacity,
   ImageBackground,
+  Text
 } from "react-native";
 import { TextInput } from "../../components/TextInput";
-import { Icon } from "../../components/Icon/index.js";
 import { useNavigate } from "react-router-native";
+import { Icon } from "../../components/Icon/index.js";
 
 //import { useState } from "react";
 
@@ -29,62 +30,66 @@ export function Cadastrod() {
         source={require("../../../assets/fundo.png")}
         style={styles.imageBackground}
       >
-        <Image
-          source={require("../../../assets/logo.png")}
-          style={styles.logo}
-        ></Image>
-        <View style={styles.form}>
+       <Text style={styles.info}>Dados Pessoais: </Text>
+       <Icon
+            iconFrom={"AntDesign"}
+            icon={"user"}
+            style={styles.iconInfo}
+            color={"white"}
+            
+        ></Icon>
+        
+        
+          <View style={styles.form}>
           <TextInput
-            icon="signature"
+           
             label="nome"
             //onChangeText={(text) => handleChange(text, "nome")}
             // value={formValue.nome}
           />
 
           <TextInput
-            icon="user"
+          
             label="apelido"
             //onChangeText={(text) => handleChange(text, "apelido")}
             // value={formValue.apelido}
           />
 
           <TextInput
-            icon="phone"
-            iconFrom="FontAwesome5"
-            label="telefone"
+              icon="phone"
+              iconFrom="FontAwesome5"
+              label="telefone"
             //onChangeText={(text) => handleChange(text, "telefone")}
             //value={formValue.telefone}
           />
           <TextInput
-            icon="calendar-day"
-            iconFrom="FontAwesome5"
-            label="nascimento"
+              icon="calendar-day"
+              iconFrom="FontAwesome5"
+              label="nascimento"
             //onChangeText={(text) => handleChange(text, "nascimento")}
             //value={formValue.nascimento}
           />
           <TextInput
-            icon="id-card"
-            iconFrom="FontAwesome5"
-            label="cpf"
+              icon="id-card"
+              iconFrom="FontAwesome5"
+              label="cpf"
             //onChangeText={(text) => handleChange(text, "cpf")}
             // value={formValue.cpf}
           />
         </View>
         <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigate("/Interesses")}
+            style={styles.button}
+            onPress={() => navigate("/interesses")}
         >
           <Icon
-          iconFrom={"AntDesign"}
-          icon={"right"}
-          style={styles.icon}
-          color={"white"}
+            iconFrom={"AntDesign"}
+            icon={"right"}
+            style={styles.icon}
+            color={"white"}
         ></Icon>
         </TouchableOpacity>
 
         <StatusBar style="auto" />
-        
-
       </ImageBackground>
     </View>
   );
@@ -92,10 +97,11 @@ export function Cadastrod() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "transparent",
-    alignItems: "center",
-    justifyContent: "center",
+      flex: 1,
+      backgroundColor: "transparent",
+      alignItems: "center",
+      justifyContent: "center",
+
   },
   button: {
     width: 100,
@@ -107,11 +113,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 5,
     margin: 100,
+
   },
   login: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#FFf",
+
   },
 
   imageBackground: {
@@ -120,6 +128,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
+
   },
   form: {
     flex: 1,
@@ -128,9 +137,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 100,
     maxHeight: 250,
     paddingTop: 70,
+
   },
   logo: {
     height: 200,
     width: 200,
   },
-});
+  info:{
+    alignItems:"center",
+    fontSize: 30,
+    color: "#FFf",
+    margin:20
+
+  },
+  iconInfo:{
+    padding:10,
+    fontSize:40,
+    fontWeight: "bold",
+  },
+  icon:{
+    padding:18,
+    fontSize:50,
+
+  }}
+);

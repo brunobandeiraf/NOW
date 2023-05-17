@@ -19,7 +19,7 @@ export function Interesses() {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Interesses</Text>
-      <Text>Bem-vindo, {data.name}</Text>
+      
       <View style={styles.div2}>
         <View style={styles.div}>
           <TouchableOpacity
@@ -45,6 +45,12 @@ export function Interesses() {
             <Text style={styles.text}>Futebol</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity
+            style={styles.button}
+            //onPress={() => Alert.alert("ola")}
+          >
+            <Text style={styles.text}>Festas</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
             //onPress={() => Alert.alert("ola")}
@@ -146,15 +152,16 @@ export function Interesses() {
           >
             <Text style={styles.text}>natação</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            //onPress={() => Alert.alert("ola")}
+          >
+            <Text style={styles.text}>natação</Text>
+          </TouchableOpacity>
         </View>
       </View>
-      <TextInput
-        icon="pen"
-        iconFrom="FontAwesome5"
-        label="Interesses"
-        //onChangeText={(text) => handleChange(text, "password")}
-        //value={formValue.password}
-      />
+     
 
       <TouchableOpacity
         style={styles.buttonn}
@@ -183,7 +190,7 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: "#FF4500",
     borderWidth: 2,
-    borderRadius: 5,
+    borderRadius: 30,
     borderColor: "#FF4500",
     alignItems: "center",
     paddingTop: 5,
@@ -214,7 +221,7 @@ const styles = StyleSheet.create({
     borderColor: "#FF4500",
     justifyContent: "center",
     alignItems: "center",
-    margin: 50,
+    margin: 30,
   },
 
   logo: {

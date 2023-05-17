@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { useNavigate } from "react-router-native";
 import {
   StyleSheet,
   Text,
@@ -8,7 +7,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { TextInput } from "../../components/TextInput";
-import { Icon } from "../../components/Icon/index.js";
+import { useNavigate } from "react-router-native";
 
 export function Cadastro() {
   const navigate = useNavigate();
@@ -43,11 +42,14 @@ export function Cadastro() {
             //value={formValue.password}
           />
         </View>
-        <TouchableOpacity>
-            <Text style={styles.japossuo} onPress={() => navigate("/sign-in")}>
-              já possuo conta
-            </Text>
-          </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.Text}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.japossuo}>Já possuo conta</Text>
+        </TouchableOpacity>
+
 
         <TouchableOpacity
           style={styles.button}
@@ -55,27 +57,6 @@ export function Cadastro() {
         >
           <Text style={styles.login}>cadastrar</Text>
         </TouchableOpacity>
-
-        <View style={styles.div}>
-        <Icon
-          iconFrom={"AntDesign"}
-          icon={"right"}
-          style={styles.icon}
-          color={"#FF4500"}
-        ></Icon>
-        <Icon
-          iconFrom={"AntDesign"}
-          icon={"right"}
-          style={styles.icon}
-          color={"#FF4500"}
-        ></Icon>
-        <Icon
-          iconFrom={"AntDesign"}
-          icon={"right"}
-          style={styles.icon}
-          color={"#FF4500"}
-        ></Icon>
-        </View>
 
         <StatusBar style="auto" />
       </ImageBackground>
@@ -126,12 +107,11 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
   },
-  japossuo:{
+  Text:{
     color: "#FF4500",
-
   },
-  div:{
-    flexDirection:"row",
-    margin:10,
+  japossuo:{
+    padding:20,
+    color: "#FF4500",
   }
 });
