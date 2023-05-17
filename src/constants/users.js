@@ -11,4 +11,10 @@ export const USERS = [
         password: 'jose',
         name: 'Marcio P. Silva',
     },
+    {
+        id: 3, 
+        email: 'Admin',
+        password: 'Admin',
+        name: 'Dono da Porra Toda',
+    },
 ]

@@ -27,21 +27,39 @@ export function Home() {
   //   getCurrentPosition();
   // }, []);
   return (
-    <View style={styles.container}>
-      <Text>Top</Text>
-      {region && (
-        <MapView
-          style={styles.map}
-          provider={PROVIDER_GOOGLE}
-          showsUserLocation
-          initialRegion={{...region}}
-        >
-          <Marker coordinate={{...region}}>
-            <Text>pitbull</Text>
-          </Marker>
-        </MapView>
-      )}
-    </View>
+    <>
+      <View style={styles.container}>
+            {region && (
+              <MapView
+                style={styles.map}
+                provider={PROVIDER_GOOGLE}
+                showsUserLocation
+                initialRegion={{...region}}
+              >
+                <Marker coordinate={{...region}}>
+                  <Text>pitbull</Text>
+                </Marker>
+              </MapView>
+            )}
+      </View>
+      
+      <View style={styles.corpo}>
+
+              <View style={styles.card}>
+                
+              </View>
+
+              <View style={styles.card}>
+                
+              </View>
+
+              <View style={styles.card}>
+                
+              </View>
+
+      </View>
+      
+    </>
   );
 }
 
@@ -53,5 +71,25 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%",
+  },
+  corpo:{
+    flex: 0,
+    width: "100%",
+    height: "40%",
+    
+    borderTopLeftRadius: `40`,
+    borderTopRightRadius: `40`,
+    justifyContent: `center`,
+    alignItems: `center`,
+
+  },
+  card:{
+    marginTop: 10,
+    flex: 0.3,
+    width: "100%",
+    height: "30%",
+    backgroundColor: `#ffffff`,
+    borderTopWidth: `2`,
+    borderColor: `adbac0`,
   },
 });
