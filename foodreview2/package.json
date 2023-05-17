@@ -1,0 +1,16 @@
+{
+  "name": "foodreview",
+  "version": "1.0.0",
+  "description": "Backend da Aplicação Foodreview",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo Rahal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}

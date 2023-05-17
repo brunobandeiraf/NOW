@@ -1,9 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-
-import { Interesses } from './src/screens/interesses';
-import { Login} from './src/screens/Login';
+import { StyleSheet, View } from 'react-native';
 import { Router } from './Router';
 import { UserProvider } from './src/contexts/UserContext';
 
