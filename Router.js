@@ -10,8 +10,8 @@ export const Router = () => {
   return (
     <NativeRouter>
       <Routes>
-        <Route path="/" element={<Login />}></Route>
-        <Route index path="/home" element={<Home />}></Route>
+        <Route index path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/sign-up" element={<Cadastro />}></Route>
         <Route path="/cadastrod" element={<Cadastrod />}></Route>
         <Route path="/interesses" element={<Interesses/>}></Route>
