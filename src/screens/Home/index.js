@@ -1,65 +1,62 @@
 import React, { useState, useEffect } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
-import { StyleSheet, View, Text } from "react-native";
-import { Location } from "react-router-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { Location } from "expo-location";
 export function Home() {
   const [region, setRegion] = useState({
     latitude: -27.443343492525734, 
     logintude: -48.369098876729645,
     latitudeDelta: -27.443343492525734, 
-    logintudeDelta: -48.369098876729646,
+    logintudeDelta: -48.369098876729645,
   });
 
-  // const getCurrentPosition = async () => {
-  //   let { status } = await Location.requestPermissionsAsync();
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  //   if (status !== "granted") {
-  //     Alert.alert("Ops!", "Permissão de acesso a localização negada.");
-  //   }
+  useEffect(() => {
+    (async () => {
+      
+      let { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') {
+          setErrorMsg('Permission to access location was denied');
+          return;
+        }
+        
+        let location = await Location.getCurrentPositionAsync({});
+        console.log("oi");
+        setLocation(location);
+    })();
+  }, []);
 
-  //   let {
-  //     coords: { latitude, longitude },
-  //   } = await Location.getCurrentPositionAsync();
 
-  //   setRegion({ latitude, longitude, latitudeDelta: 100, longitudeDelta: 100 });
-  // };
-  // useEffect(() => {
-  //   getCurrentPosition();
-  // }, []);
   return (
-    <>
-      <View style={styles.container}>
-            {region && (
-              <MapView
-                style={styles.map}
-                provider={PROVIDER_GOOGLE}
-                showsUserLocation
-                initialRegion={{...region}}
-              >
-                <Marker coordinate={{...region}}>
-                  <Text>pitbull</Text>
-                </Marker>
-              </MapView>
+    <View style={styles.container}>
+      <Text>Top</Text>
+      {region && (
+        <MapView
+          style={styles.map}
+          provider={PROVIDER_GOOGLE}
+          showsUserLocation
+          initialRegion={{
+            latitude: -27.548288,
+            longitude:  -48.499018,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          <Marker coordinate={{
+            latitude: -27.548288,
+            longitude:  -48.499018,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}>
+            {location && (
+              <TouchableOpacity onPress={()=>console.log(location)} >aaa</TouchableOpacity>
             )}
-      </View>
-      
-      <View style={styles.corpo}>
-
-              <View style={styles.card}>
-                
-              </View>
-
-              <View style={styles.card}>
-                
-              </View>
-
-              <View style={styles.card}>
-                
-              </View>
-
-      </View>
-      
-    </>
+          </Marker>
+        </MapView>
+      )}
+    </View>
   );
 }
 
@@ -71,25 +68,5 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%",
-  },
-  corpo:{
-    flex: 0,
-    width: "100%",
-    height: "40%",
-    
-    borderTopLeftRadius: `40`,
-    borderTopRightRadius: `40`,
-    justifyContent: `center`,
-    alignItems: `center`,
-
-  },
-  card:{
-    marginTop: 10,
-    flex: 0.3,
-    width: "100%",
-    height: "30%",
-    backgroundColor: `#ffffff`,
-    borderTopWidth: `2`,
-    borderColor: `adbac0`,
   },
 });
