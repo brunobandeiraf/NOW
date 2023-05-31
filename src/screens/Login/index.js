@@ -6,19 +6,27 @@ import {
   TouchableOpacity,
   ImageBackground,
   Image,
+  Dimensions,
 } from "react-native";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { TextInput } from "../../../src/components/TextInput";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { useNavigate } from "react-router-native";
 import { USERS } from "../../constants/users";
 import { UserContext } from "../../contexts/UserContext";
+import { BottomSheetComponente } from "../../components/BottomSheet";
 
+// Você foi raquiado pelo SantinhozHackz'2.0 - A NOVA ONDA HACK
+// acessa meu saite: www.ondahacksantinhozhackz.blogspot.com.br
+// Programas, hackz e photoshop crackeado
 export function Login() {
+  const { width, height } = Dimensions.get('window');
   const [formValue, setFormValue] = useState({
     email: "",
     password: "",
     passwordConfirm: "",
   });
+  const sheetRef = useRef(null);
   const navigate = useNavigate();
   const { handleLogin } = useContext(UserContext)
 
@@ -67,6 +75,19 @@ export function Login() {
         </TouchableOpacity>
 
         <StatusBar style="auto" />
+      
+        <BottomSheet
+        ref={sheetRef}
+        index={1}
+        snapPoints={[1, height - 260]}
+        backgroundStyle={{ backgroundColor: '#333' }}
+        handleIndicatorStyle={{ backgroundColor: '#555' }}
+        enableHandlePanningGesture
+        onScrollBeginDrag={(value) => console.log(value)}
+      >
+        <Text>oioioi</Text>
+      </BottomSheet>
+
       </ImageBackground>
     </View>
   );
