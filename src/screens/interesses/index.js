@@ -165,11 +165,12 @@ export function Interesses() {
 
       <TouchableOpacity
         style={styles.buttonn}
-        //onPress={() => Alert.alert("ola")}
+        onPress={() => navigate("/perfil")}
+      
       >
         <Icon
           iconFrom={"AntDesign"}
-          icon={"right"}
+          icon={"user"}
           style={styles.icon}
           color={"white"}
         ></Icon>

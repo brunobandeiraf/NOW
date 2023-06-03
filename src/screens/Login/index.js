@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 70,
-    maxHeight: 150,
+    maxHeight: "19%",
     paddingTop: 70,
   },
   esqueceu: {
