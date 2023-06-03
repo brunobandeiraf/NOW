@@ -5,6 +5,7 @@ import { Cadastro } from "./src/screens/cadastro";
 import { Interesses } from "./src/screens/interesses";
 import { Home } from "./src/screens/Home";
 import { Cadastrod } from "./src/screens/cadastrod";
+import { Perfil } from "./src/screens/perfil";
 
 export const Router = () => {
   return (
@@ -15,6 +16,7 @@ export const Router = () => {
         <Route path="/sign-up" element={<Cadastro />}></Route>
         <Route path="/cadastrod" element={<Cadastrod />}></Route>
         <Route path="/interesses" element={<Interesses/>}></Route>
+        <Route path="/perfil" element={<Perfil/>}></Route>
       </Routes>
     </NativeRouter>
   );

@@ -45,7 +45,7 @@ export function Cadastro() {
 
         <TouchableOpacity
           style={styles.Text}
-          onPress={() => navigate("/")}
+          onPress={() => navigate("/login")}
         >
           <Text style={styles.japossuo}>Já possuo conta</Text>
         </TouchableOpacity>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 70,
-    maxHeight: 150,
+    maxHeight: "22%",
     paddingTop: 70,
   },
   logo: {
