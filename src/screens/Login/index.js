@@ -82,7 +82,6 @@ export function Login() {
         snapPoints={[1, height - 260]}
         backgroundStyle={{ backgroundColor: '#333' }}
         handleIndicatorStyle={{ backgroundColor: '#555' }}
-        enableHandlePanningGesture
         onScrollBeginDrag={(value) => console.log(value)}
       >
         <Text>oioioi</Text>
