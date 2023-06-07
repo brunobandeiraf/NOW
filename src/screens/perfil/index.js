@@ -38,7 +38,7 @@ export function Perfil() {
             color={"white"}
             
         ></Icon>
-       
+       <Text style={styles.perfil}>Perfil</Text>
         
           <View style={styles.form}>
           <TextInput
@@ -80,6 +80,21 @@ export function Perfil() {
           
         </TouchableOpacity>
 
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigate("/")}
+        ><Text
+        style={styles.interesses}
+        > <Icon
+        iconFrom={"AntDesign"}
+        icon={"home"}
+        style={styles.iconhome}
+        color={"white"}
+        
+    ></Icon></Text>
+          
+        </TouchableOpacity>
+
         <StatusBar style="auto" />
       </ImageBackground>
     </View>
@@ -103,7 +118,7 @@ const styles = StyleSheet.create({
     borderColor: "#FF4500",
     alignItems: "center",
     paddingTop: 5,
-    margin: 100,
+    margin:20,
 
   },
   login: {
@@ -142,13 +157,17 @@ const styles = StyleSheet.create({
 
   },
   iconInfo:{
-    padding:10,
-    fontSize:40,
+    fontSize:80,
     fontWeight: "bold",
+  
+  },
+  iconhome:{
+    fontSize: 35,
   },
   icon:{
     padding:18,
     fontSize:50,
+    fontSize:200
 
   },
   
@@ -156,6 +175,11 @@ const styles = StyleSheet.create({
     color:"#FFf",
     fontWeight:"bold",
     alignItems:"center"
+  },
+  perfil:{
+    color:"#FF4500",
+    fontWeight:"bold",
+  
   }
 }
 );

@@ -10,7 +10,7 @@ import {
 import { TextInput } from "../../../src/components/TextInput";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-native";
-import { USERS } from "../../constants/users";
+
 import { UserContext } from "../../contexts/UserContext";
 
 export function Login() {
