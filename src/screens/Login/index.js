@@ -12,7 +12,7 @@ import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { TextInput } from "../../../src/components/TextInput";
 import { useContext, useState, useRef } from "react";
 import { useNavigate } from "react-router-native";
-import { USERS } from "../../constants/users";
+
 import { UserContext } from "../../contexts/UserContext";
 import { BottomSheetComponente } from "../../components/BottomSheet";
 
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 70,
-    maxHeight: 150,
+    maxHeight: "19%",
     paddingTop: 70,
   },
   esqueceu: {
