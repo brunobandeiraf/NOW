@@ -5,6 +5,7 @@ import { Cadastro } from "./src/screens/cadastro";
 import { Interesses } from "./src/screens/interesses";
 import { Home } from "./src/screens/Home";
 import { Cadastrod } from "./src/screens/cadastrod";
+
 import { Perfil } from "./src/screens/perfil";
 import { Perfilamigo } from "./src/screens/perfilamigo";
 import { Contatos } from "./src/screens/contatos";
@@ -23,5 +24,4 @@ export const Router = () => {
         <Route path="/contatos" element={<Contatos/>}></Route>
       </Routes>
     </NativeRouter>
-  );
-};
+  )};

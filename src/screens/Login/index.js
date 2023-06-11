@@ -8,27 +8,22 @@ import {
   Image,
   Dimensions,
 } from "react-native";
-import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { TextInput } from "../../../src/components/TextInput";
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-native";
 
 import { UserContext } from "../../contexts/UserContext";
-import { BottomSheetComponente } from "../../components/BottomSheet";
+import BottomSheetComponente from "../../components/BottomSheet";
 
-// Você foi raquiado pelo SantinhozHackz'2.0 - A NOVA ONDA HACK
-// acessa meu saite: www.ondahacksantinhozhackz.blogspot.com.br
-// Programas, hackz e photoshop crackeado
 export function Login() {
-  const { width, height } = Dimensions.get('window');
+  const { width, height } = Dimensions.get("window");
   const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
-    passwordConfirm: "",
+    email: "Admin",
+    password: "Admin",
+    passwordConfirm: "Admin",
   });
-  const sheetRef = useRef(null);
   const navigate = useNavigate();
-  const { handleLogin } = useContext(UserContext)
+  const { handleLogin } = useContext(UserContext);
 
   const handleChange = (value, key) => {
     setFormValue({ ...formValue, [key]: value });
@@ -75,18 +70,6 @@ export function Login() {
         </TouchableOpacity>
 
         <StatusBar style="auto" />
-      
-        <BottomSheet
-        ref={sheetRef}
-        index={1}
-        snapPoints={[1, height - 260]}
-        backgroundStyle={{ backgroundColor: '#333' }}
-        handleIndicatorStyle={{ backgroundColor: '#555' }}
-        onScrollBeginDrag={(value) => console.log(value)}
-      >
-        <Text>oioioi</Text>
-      </BottomSheet>
-
       </ImageBackground>
     </View>
   );
@@ -133,8 +116,7 @@ const styles = StyleSheet.create({
   },
   esqueceu: {
     color: "#FF4500",
-    paddingTop:5
-    
+    paddingTop: 5,
   },
   logo: {
     height: 200,

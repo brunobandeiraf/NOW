@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
@@ -7,31 +7,60 @@ import { Location } from "expo-location";
 import PressionavelHome from "../../components/modalhome";
 import { Icon } from "../../components/Icon/index.js";
 import { getCurrentLocation } from "../../services/location";
-import { BottomSheetComponente } from "../../components/BottomSheet";
+import BottomSheetComponente from "../../components/BottomSheet";
 
 import { useNavigate } from "react-router-native";
 export function Home() {
   const [modalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
   const [region, setRegion] = useState({
-    latitude: -27.443343492525734,
-    logintude: -48.369098876729645,
-    latitudeDelta: -27.443343492525734,
-    logintudeDelta: -48.369098876729645,
+    latitude: -27.548288,
+    longitude: -48.499018,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
   });
 
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({
+    latitude: -27.548288,
+    longitude: -48.499018,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  });
   const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
-    getCurrentLocation();
+    getCurrentLocation().then((value) => {
+      console.log(value);
+      setLocation(value);
+      setRegion(value);
+    }).catch((error) => {
+      console.log(error);
+    })
   }, []);
 
-  return  (
+  const data = useMemo(
+    () =>
+      Array(50)
+        .fill(0)
+        .map((_, index) => `index-${index}`),
+    []
+  );
+  const snapPoints = Array.from(Array(100 + 1).keys())
+    .slice(1)
+    .map((element) => `${element}%`);
+
+  const renderItem = useCallback(
+    (item) => (
+      <View key={item} style={styles.itemContainer}>
+        <Text>{item}</Text>
+      </View>
+    ),
+    []
+  );
+  return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.back}>
-      <PressionavelHome>
-        </PressionavelHome>  
+        <PressionavelHome></PressionavelHome>
       </TouchableOpacity>
 
       {region && (
@@ -39,32 +68,28 @@ export function Home() {
           style={styles.map}
           provider={PROVIDER_GOOGLE}
           showsUserLocation
-          initialRegion={{
-            latitude: -27.548288,
-            longitude: -48.499018,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+          initialRegion={region}
         >
           <Marker
-            coordinate={{
-              latitude: -27.508288,
-              longitude: -48.498018,
-              latitudeDelta: 0.0922,
-              longitudeDelta:  0.0421,
-            }}
+            coordinate={location}
           >
             {location && (
               <TouchableOpacity onPress={() => console.log(location)}>
-                aaa
+                <Text>aaa</Text>
               </TouchableOpacity>
             )}
           </Marker>
-
         </MapView>
       )}
-     
-          
+
+      <BottomSheetComponente
+        index={null}
+        snapPoints={snapPoints}
+        backgroundStyle={styles.bottomStyle}
+        handleIndicatorStyle={styles.bottomIndicatorStyle}
+        data={data}
+        renderItem={renderItem}
+      ></BottomSheetComponente>
     </View>
   );
 }
@@ -92,8 +117,15 @@ const styles = StyleSheet.create({
     marginBottom: "-15%",
     marginTop: "5%",
   },
-  icon:{
-fontSize:35
-  }
-
+  icon: {
+    fontSize: 35,
+  },
+  bottomStyle: {
+    backgroundColor: "#fff",
+    borderWidth: 3,
+    borderColor: "#FF4500",
+  },
+  bottomIndicatorStyle: {
+    backgroundColor: "#FF4500",
+  },
 });
