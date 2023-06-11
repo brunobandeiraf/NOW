@@ -6,21 +6,24 @@ import {
   TouchableOpacity,
   ImageBackground,
   Image,
+  Dimensions,
 } from "react-native";
 import { TextInput } from "../../../src/components/TextInput";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-native";
 
 import { UserContext } from "../../contexts/UserContext";
+import BottomSheetComponente from "../../components/BottomSheet";
 
 export function Login() {
+  const { width, height } = Dimensions.get("window");
   const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
-    passwordConfirm: "",
+    email: "Admin",
+    password: "Admin",
+    passwordConfirm: "Admin",
   });
   const navigate = useNavigate();
-  const { handleLogin } = useContext(UserContext)
+  const { handleLogin } = useContext(UserContext);
 
   const handleChange = (value, key) => {
     setFormValue({ ...formValue, [key]: value });
@@ -113,8 +116,7 @@ const styles = StyleSheet.create({
   },
   esqueceu: {
     color: "#FF4500",
-    paddingTop:5
-    
+    paddingTop: 5,
   },
   logo: {
     height: 200,

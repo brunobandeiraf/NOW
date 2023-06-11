@@ -9,7 +9,12 @@ const context = {
 export const UserContext = createContext(context);
 
 export const UserProvider = ({ children }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    id: 3, 
+    email: 'Admin',
+    password: 'Admin',
+    name: 'Dono da Porra Toda',
+  });
 
   const handleLogin = (username, password) => {
     const foundUser = USERS.filter(
