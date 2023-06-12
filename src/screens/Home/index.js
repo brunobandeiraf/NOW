@@ -60,7 +60,15 @@ export function Home() {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.back}>
-        <PressionavelHome></PressionavelHome>
+      
+      <Icon
+        iconFrom={"AntDesign"}
+        icon={"home"}
+        style={styles.iconhome}
+        color={"white"}
+        
+      ></Icon>
+        <PressionavelHome style={styles.back} ></PressionavelHome>
       </TouchableOpacity>
 
       {region && (
@@ -105,8 +113,8 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   back: {
-    width: "50%",
-    height: 50,
+    width: "12%",
+    height: "5%",
     backgroundColor: "#FF4500",
     borderWidth: 2,
     borderRadius: 10000,
@@ -117,8 +125,8 @@ const styles = StyleSheet.create({
     marginBottom: "-15%",
     marginTop: "5%",
   },
-  icon: {
-    fontSize: 35,
+  iconhome: {
+    fontSize: 25,
   },
   bottomStyle: {
     backgroundColor: "#fff",

@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useMemo } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import { Icon } from "../../components/Icon/index.js";
 
 const App = ({
   index,
@@ -32,6 +33,80 @@ const App = ({
        
       >
         <BottomSheetScrollView contentContainerStyle={styles.contentContainer}>
+        <Text style={styles.title}>Amigos 
+        </Text> 
+          
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>Joao</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>Daniel</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>gustavo</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>Heitor</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>---------</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>---------</Text>
+        </TouchableOpacity>
+        
+        
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>---------</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.contact}
+          onPress={() => navigate("/")}
+        >
+          <Text style={styles.contactText}>---------</Text>
+        </TouchableOpacity>
+
+
+
+
+
+
+
+
+
+
           {data.map(renderItem)}
         </BottomSheetScrollView>
       </BottomSheet>
@@ -47,6 +122,30 @@ const styles = StyleSheet.create({
     margin: 6,
     backgroundColor: "#000",
   },
+  contact:{
+    width: "99%",
+    height: 40,
+    backgroundColor: "#FF4500",
+    borderWidth: 2,
+    borderRadius: 20,
+    borderColor: "#FF4500",
+    margin:1
+ 
+  },
+  contactText:{
+    fontSize: 21,
+    fontWeight: "bold",
+    color: "#FFf",
+  },
+  title:{
+    fontSize: 31,
+    fontWeight: "bold",
+    color: "#FF4500",
+  },
+  iconAmigos:{
+    fontSize: 25,
+    color: "#FF4500",
+  }
 });
 
 export default App;

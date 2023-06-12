@@ -9,6 +9,7 @@ import {
 import { TextInput } from "../../components/TextInput";
 import { useNavigate } from "react-router-native";
 
+
 export function Cadastro() {
   const navigate = useNavigate();
   return (

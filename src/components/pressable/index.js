@@ -28,6 +28,7 @@ const Pressionavel = () => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
+            <Text style={styles.novoctt}>Novo contato</Text>
             <TextInput style={styles.modalText}
             placeholder="nome"></TextInput>
             <TextInput style={styles.modalText}
@@ -48,7 +49,7 @@ const Pressionavel = () => {
         <Text style={styles.textStyle}>
         <Icon
             iconFrom={"AntDesign"}
-            icon={"home"}
+            icon={"plus"}
             style={styles.icon}
             color={"white"}
           ></Icon>
@@ -94,8 +95,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   adicional: {
-    width: "30%",
-    height: "50%",
+    width: "20%",
+    height: "30%",
     borderRadius: 200,
     backgroundColor: "#ff4900",
     justifyContent: "center",
@@ -121,6 +122,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderBottomWidth: 2,
   },
+  novoctt:{
+    fontWeight:"bold",
+    fontSize:18  }
 });
 
 export default Pressionavel;

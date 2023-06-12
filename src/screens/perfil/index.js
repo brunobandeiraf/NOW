@@ -82,7 +82,7 @@ export function Perfil() {
 
         <TouchableOpacity
             style={styles.button}
-            onPress={() => navigate("/")}
+            onPress={() => navigate("/Home")}
         ><Text
         style={styles.interesses}
         > <Icon
